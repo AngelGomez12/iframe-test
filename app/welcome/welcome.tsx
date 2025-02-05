@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
 
 interface WelcomeProps {
   productId: string;
@@ -15,20 +13,17 @@ export const Welcome: React.FC<WelcomeProps> = ({ productId }) => {
       `Reserva confirmada para el producto ${productId} con email: ${email}`
     );
     setModalOpen(false);
+    setEmail("");
   };
 
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <div className="max-w-[300px] w-full space-y-6 px-4">
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full"
-            onClick={() => setModalOpen(true)}
-          >
-            Reservar
-          </button>
-        </div>
-      </div>
+    <div className="flex items-center justify-center min-h-screen">
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        onClick={() => setModalOpen(true)}
+      >
+        Reservar
+      </button>
 
       {modalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -58,6 +53,6 @@ export const Welcome: React.FC<WelcomeProps> = ({ productId }) => {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 };
