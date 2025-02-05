@@ -17,7 +17,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ productId }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <>
       <button
         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
         onClick={() => setModalOpen(true)}
@@ -25,8 +25,9 @@ export const Welcome: React.FC<WelcomeProps> = ({ productId }) => {
         Reservar
       </button>
 
+      {/* Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-[90%] max-w-md text-center">
             <h2 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">
               Ingrese su correo electrónico
@@ -53,6 +54,6 @@ export const Welcome: React.FC<WelcomeProps> = ({ productId }) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
